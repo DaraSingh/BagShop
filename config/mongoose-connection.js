@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
-
+const URI=process.env.MONGODB_URI || 'mongodb://localhost:27017';
 mongoose
-.connect('mongodb://localhost:27017/bagShopDB')
+.connect(URI+"/bagShopDB")
 .then(function(){
     console.log("connected to MongoDB");
 })
