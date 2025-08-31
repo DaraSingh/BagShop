@@ -18,7 +18,9 @@ app.use("/users",require(userRouter));
 app.use("/products",require(productRouter));
 
 app.get('/',(req,res)=>{
-    res.send("Hello World");
+    // res.send("Hello World");
+    res.render('Home');
+
 })
 
 app.listen(3000,()=>{
