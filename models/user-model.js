@@ -10,7 +10,6 @@ const userSchema=mongoose.Schema({
     email:String,
     password:String,
     cart:Array,
-    isadmin:Boolean,
     orders:Array,
     contact:Number,
     picture:String
