@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title><%=title%></title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
@@ -14,10 +14,11 @@
           class="flex items-center justify-between p-6 lg:px-8"
         >
           <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5">
+            <!-- <a href="#" class="-m-1.5 p-1.5"> -->
+              <h1 class="font-bold"><%=page%></h1>
               <!-- <span class="sr-only">Your Company</span> -->
               <!-- <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="" class="h-8 w-auto" /> -->
-            </a>
+            <!-- </a> -->
           </div>
           <div class="hidden lg:flex lg:gap-x-12">
             <a href="#" class="text-sm/6 font-semibold text-gray-900"
@@ -33,10 +34,16 @@
               >Company</a
             >
           </div>
-          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end"></div>
+          <% if(page==""){ %>
             <a href="/login" class="text-sm/6 font-semibold text-gray-900"
               >Log in</a
             >
+          <%}else{%>
+            <a href="/logout" class="text-sm/6 font-semibold text-gray-900"
+              >Log Out</a
+            >
+          <%}%>
           </div>
         </nav>
       </header>

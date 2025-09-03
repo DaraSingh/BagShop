@@ -4,9 +4,6 @@ const userModel=require("../models/user-model")
 const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken")
 
-
-
-
 router.post("/register", async (req, res) => {
     try {
       bcrypt.genSalt(10, function (err, salt) {
@@ -21,7 +18,8 @@ router.post("/register", async (req, res) => {
             })
           const token=jwt.sign({id:createdUser._id},process.env.SECRET_KEY);
           res.cookie("token", token);
-          res.send(createdUser);
+          // res.send(createdUser);
+          res.redirect('/shop')
         });
       });
     } catch (err) {
@@ -33,7 +31,7 @@ router.post("/register", async (req, res) => {
     res.send(deletedOwner);
   });
   router.get("/list", async (req, res) => {
-    const Owner = await userModel.find({});
+    const Owner = await userModel.find();
     res.send(Owner);
   });
 router.get('/register',(req,res)=>{

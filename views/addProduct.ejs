@@ -1,0 +1,118 @@
+<%- include('partials/header',{title:"Admin",page:"Admin"}) %>
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight">
+      Add New Product
+    </h2>
+  </div>
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form action="" method="POST" class="space-y-3" enctype="multipart/form-data">
+      <div>
+        <label for="ProductName" class="block text-sm/6 font-medium"
+          >ProductName</label
+        >
+        <div class="mt-1">
+          <input
+            id="ProductName"
+            type="text"
+            name="ProductName"
+            required
+            class="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-black/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="price" class="block text-sm/6 font-medium"
+          >Price</label
+        >
+        <div class="mt-1">
+          <input
+            id="price"
+            type="number"
+            name="price"
+            required
+            class="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-black/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="discount" class="block text-sm/6 font-medium"
+          >Discount</label
+        >
+        <div class="mt-1">
+          <input
+            id="discount"
+            type="number"
+            name="discount"
+            required
+            class="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-black/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="bgcolor" class="block text-sm/6 font-medium"
+          >Background Color</label
+        >
+        <div class="mt-1">
+          <input
+            id="bgcolor"
+            type="String"
+            name="bgcolor"
+            required
+            class="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-black/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="panelcolor" class="block text-sm/6 font-medium"
+          >Panel Color</label
+        >
+        <div class="mt-1">
+          <input
+            id="panelcolor"
+            type="string"
+            name="panelcolor"
+            required
+            class="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-black/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="textcolor" class="block text-sm/6 font-medium"
+          >Text Color</label
+        >
+        <div class="mt-1">
+          <input
+            id="textcolor"
+            type="string"
+            name="textcolor"
+            required
+            class="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-black/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="image" class="block text-sm/6 font-medium">Upload Image</label>
+        <div class="mt-1">
+          <input
+            id="image"
+            type="file"
+            name="image"
+            required
+            class="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-black/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+          />
+        </div>
+      </div>
+      <div>
+        <button
+          type="submit"
+          class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+
+
+<%- include('partials/footer') %>
