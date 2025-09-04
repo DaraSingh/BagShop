@@ -23,10 +23,20 @@ app.use("/owners",require(ownersRouter));
 app.use("/users",require(userRouter));
 app.use("/products",require(productRouter));
 
+app.get("/contact",(req,res)=>{
+    res.render("contact")
+})
 
 app.get("/shop",isLoggedIn,async(req,res)=>{
     const allProducts=await productModel.find({});
-    res.render('Shop',{"items":allProducts})
+    // const decode=jwt.decode(token)
+    const decode=req.user
+    let role="user"
+    if((decode.id===process.env.OWNER_ID)){
+        // return res.render('/shop')
+        role="admin"
+    }
+    res.render('Shop',{"items":allProducts,"role":role,"id":decode.id})
     // res.render("Shop",)
 })
 
@@ -81,10 +91,14 @@ app.get("/logOut",async(req,res)=>{
     res.redirect('/')
 })
 
-app.get('/',(req,res)=>{
-    // res.send("Hello World");
-    res.render('Home');
-
+app.get('/',async(req,res)=>{
+    const decode=jwt.decode(req.cookies.token)
+    if(req.cookies.token){
+        res.render('Home',{page:" ",id:decode.id})
+    }
+    else {
+        res.render('Home',{page:"",id:""});
+    }
 })
 
 app.listen(3000,()=>{

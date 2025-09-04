@@ -58,7 +58,6 @@ if (process.env.NODE_ENV === "development") {
           const token=jwt.sign({id:createdOwner._id},process.env.SECRET_KEY);
           res.cookie("token", token);
           res.redirect('/shop');
-          // res.send(createdOwner);
         });
       });
     } catch (err) {

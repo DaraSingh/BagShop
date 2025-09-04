@@ -1,4 +1,4 @@
-<%- include('partials/header',{title:"Register",page:""}) %>
+<%- include('partials/header',{title:"Register",page:"",id:""}) %>
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -35,14 +35,12 @@
         </div>
       </div>
       <div>
-        <label for="password" class="block text-sm/6 font-medium"
-          >Password</label
-        >
+        <label for="address" class="block text-sm/6 font-medium">Address</label>
         <div class="mt-1">
           <input
-            id="password"
-            type="password"
-            name="password"
+            id="address"
+            type="text"
+            name="address"
             required
             class="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-black/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
           />
@@ -55,6 +53,20 @@
             id="contact"
             type="number"
             name="contact"
+            required
+            class="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-black/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="password" class="block text-sm/6 font-medium"
+          >Password</label
+        >
+        <div class="mt-1">
+          <input
+            id="password"
+            type="password"
+            name="password"
             required
             class="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-black/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
           />

@@ -1,0 +1,90 @@
+<%- include('partials/header',{title:"Shop",page:"Order",id:user._id}) %>
+ 
+    <!-- <div class="bg-white"> -->
+    
+  <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <div class="max-w-2xl mx-auto mt-10 p-6 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500 rounded-2xl shadow-lg text-center">
+  <h2 class="text-2xl md:text-3xl font-extrabold tracking-wide text-white drop-shadow-lg">
+    🎉 Thank You For Placing Your Order!
+  </h2>
+  <p class="mt-4 text-lg text-gray-100">
+    Your order will be delivered within <span class="font-semibold">3 working days</span> at  
+    <span class="font-bold text-yellow-200"><%= user.address %></span>.
+  </p>
+  <p class="mt-2 text-gray-100">
+    For any queries, please check out our 
+    <a href="/contact" class="underline text-yellow-200 hover:text-white">Contact Page</a>.
+  </p>
+</div>
+    <div class="text-xl font-bold tracking-tight text-gray-900 text-center">
+       <h2 class="text-2xl font-bold mb-4">Current Orders</h2>
+
+<table class="w-full ">
+  <thead class="bg-gray-200">
+    <tr>
+      <th>Product</th>
+      <th>Price ($)</th>
+      <th>Discount ($)</th>
+      <th>Final Price ($)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% let total = 0; %>
+    <% user.orders.forEach(item => { 
+         let discountedPrice = item.price - item.discount;
+         total += discountedPrice;
+    %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td><%= item.discount %></td>
+        <td class="text-green-400"><%= discountedPrice.toFixed(2) %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+  <tfoot class="bg-white text-bold">
+    <tr>
+      <td colspan="3" class="text-right ">Total:</td>
+      <td class=" text-blue-500">$<%= total.toFixed(2) %></td>
+    </tr>
+  </tfoot>
+</table>
+<div class="mt-5 text-right mx-20">
+    <a href="/users/order/<%=user._id%>" class="bg-blue-300 rounded-lg p-2 hover:underline hover:bg-blue-400">Place Order</a>
+</div>
+
+    </div>
+    <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+      <%user.cart.forEach((item)=>{%>
+        <div class="group relative rounded-lg bg-<%=item.bgcolor%> overflow-hidden">
+        <img src=<%=item.image%> alt="Front of men&#039;s Basic Tee in black." class="aspect-square overflow-hidden w-full rounded-md group-hover:opacity-75 lg:aspect-auto lg:h-80" />
+        <div class="mt-4 flex justify-between bg-<%=item.panelcolor%>">
+          <div>
+            <h3 class="text-<%=item.textcolor%>">
+                <%=item.name%>
+            </h3>
+              <a href="/users/delete/<%=user._id%>/<%=item._id%>" class="mt-1 text-red-500">Delete</a>
+          </div>
+          <div>
+            <h3 class="text-sm text-<%=item.textcolor%>">
+              <%if(item.discount==0){%>
+                <p class="text-sm font-medium0">$<%=item.price%></p>
+              <%}else{%>
+                <p class="text-sm font-medium line-through">$<%=item.price%></p>
+                <p class="text-sm font-medium">$<%=item.price-item.discount%></p>
+              <%}%>
+              </h3>
+          </div>
+        </div>
+      </div>
+      <%});%>
+      
+      
+      
+    </div>
+    
+  </div>
+<!-- </div> -->
+
+
+<%- include('partials/footer') %>

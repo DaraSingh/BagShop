@@ -1,10 +1,11 @@
-<%- include('partials/header',{title:"Shop",page:"Shop"}) %>
+<%- include('partials/header',{title:"Shop",page:"Shop",id:id}) %>
  
     <!-- <div class="bg-white"> -->
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
     <h2 class="text-2xl font-bold tracking-tight text-gray-900">Filter:<%=items.length%></h2>
     <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-      <div class="group relative mt-25">
+      <%if(role==="admin"){%>
+        <div class="group relative mt-25">
         <a href="products/addNewProduct" class="w-full text-9xl rounded-md bg-gray-200 ml-20 group-hover:opacity-75">➕</a>
         <div class="mt-5 flex justify-between items-center ml-20">
           <div>
@@ -13,7 +14,9 @@
             </h3>
           </div>
         </div>
-      </div>
+      </div>  
+      <%}%>
+      
       <%items.toReversed().forEach((item)=>{%>
         <div class="group relative rounded-lg bg-<%=item.bgcolor%> overflow-hidden">
         <img src=<%=item.image%> alt="Front of men&#039;s Basic Tee in black." class="aspect-square overflow-hidden w-full rounded-md group-hover:opacity-75 lg:aspect-auto lg:h-80" />
@@ -22,8 +25,13 @@
             <h3 class="text-<%=item.textcolor%>">
                 <%=item.name%>
             </h3>
-            <a href="products/delete/<%=item._id%>" class="text-red-600 block">Delete</a>
+            <%if(role==='admin'){%>
+              <a href="products/delete/<%=item._id%>" class="text-red-600 block">Delete</a>
             <a href="products/edit/<%=item._id%>" class="mt-1 text-blue-500">Edit</a>
+            <%}else{%>
+              <a href="users/addToCart/<%=item._id%>" class="mt-1 text-blue-500">Cart</a>
+            <%}%>
+            
           </div>
           <div>
             <h3 class="text-sm text-<%=item.textcolor%>">
