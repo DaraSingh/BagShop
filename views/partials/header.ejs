@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%=title%></title>
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
@@ -18,21 +22,21 @@
           </div>
           <div class="hidden lg:flex gap-x-30">
             <a href="/" class="text-3xl font-semibold text-gray-900 hover:underline"
-              >🏠</a
+              ><i class="fa-solid fa-house text-blue-400"></i></a
             >
             
             <a href="/shop" class="text-3xl font-semibold text-gray-900 hover:underline"
-              >🛍️</a
+              ><i class="fa-solid fa-bag-shopping text-pink-600"></i></a
             >
             <%if(id===process.env.OWNER_ID){%>
 
             <%}else{%>
               <a href="/users/cart" class="text-3xl font-semibold text-gray-900 hover:underline "
-              >🛒</a>
-              <a href="/users/order" class="text-3xl font-semibold text-gray-900 hover:underline "
-              >📦</a>
+              ><i class="fa-solid fa-cart-shopping text-orange-600"></i></a>
+              <a href="/users/order" class="text-3xl font-semibold text-gray-900"
+              ><i class="fa-solid fa-box text-yellow-600"></i></a>
               <a href="/contact" class="text-3xl font-semibold text-gray-900 hover:underline "
-              >☎️</a>
+              ><i class="fa-solid fa-phone text-green-600"></i></a>
             <%}%>
             
               
