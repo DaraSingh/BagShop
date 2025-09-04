@@ -20,27 +20,24 @@
           <div class="flex lg:flex-1">
               <h1 class="font-bold"><%=page%></h1>
           </div>
-          <div class="hidden lg:flex gap-x-30">
-            <a href="/" class="text-3xl font-semibold text-gray-900 hover:underline"
+          <div class="lg:flex lg:gap-x-30">
+            <a href="/" class="mx-5 text-3xl font-semibold text-gray-900 hover:underline"
               ><i class="fa-solid fa-house text-blue-400"></i></a
             >
             
-            <a href="/shop" class="text-3xl font-semibold text-gray-900 hover:underline"
+            <a href="/shop" class="mx-5 text-3xl font-semibold text-gray-900 hover:underline"
               ><i class="fa-solid fa-bag-shopping text-pink-600"></i></a
             >
             <%if(id===process.env.OWNER_ID){%>
 
             <%}else{%>
-              <a href="/users/cart" class="text-3xl font-semibold text-gray-900 hover:underline "
+              <a href="/users/cart" class="mx-5 text-3xl font-semibold text-gray-900 hover:underline "
               ><i class="fa-solid fa-cart-shopping text-orange-600"></i></a>
-              <a href="/users/order" class="text-3xl font-semibold text-gray-900"
-              ><i class="fa-solid fa-box text-yellow-600"></i></a>
-              <a href="/contact" class="text-3xl font-semibold text-gray-900 hover:underline "
+              <a href="/users/order" class="mx-5 text-3xl font-semibold text-gray-900"
+              >📦</a>
+              <a href="/contact" class="mx-5 text-3xl font-semibold text-gray-900 hover:underline "
               ><i class="fa-solid fa-phone text-green-600"></i></a>
-            <%}%>
-            
-              
-              
+            <%}%>     
           </div>
           <div class="hidden lg:flex lg:flex-1 lg:justify-end"></div>
           <% if(page==""){ %>
