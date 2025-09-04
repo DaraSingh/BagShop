@@ -2,7 +2,17 @@
 
 Welcome to **Premium Bag Shop**, an elegant full-stack web application that showcases a modern e-commerce experience.  
 Built with **Node.js, Express, MongoDB, Mongoose, and EJS** along with **Tailwind CSS**, this project demonstrates a complete shopping workflow including product listings, order placements, and owner/admin functionalities.
+---
+## 🌐 Deployment
 
+The application is deployed on **Render**.  
+You can visit it live here: 👉 [Premium Bag Shop](https://bagshop-wwfk.onrender.com)
+---
+⚠️ **Note:**  
+Since the app is hosted on Render’s free tier:  
+- It may take up to **1 minute to start** if it has been idle.  
+- Render puts the server into **sleep mode after 15 minutes of inactivity**.  
+- Please be patient while it wakes up.
 ---
 
 ## ✨ Features
@@ -37,35 +47,6 @@ To explore **Owner/Admin features** (like adding products):
 - **Password:** `12345`  
 
 ⚠️ *Note: These credentials are provided for demo/testing purposes only.*  
-
----
-
-## 🖼️ Screenshots
-
-### 🛍️ User Experience
-- **Home Page**  
-  ![Home Page](./screenshots/home.png)
-
-- **Login Page**  
-  ![Login Page](./screenshots/login.png)
-
-- **Product Listings**  
-  ![Product Listings](./screenshots/products.png)
-
-- **Order Confirmation**  
-  ![Order Confirmation](./screenshots/order.png)
-
----
-
-### 👑 Owner/Admin Experience
-- **Owner Dashboard**  
-  ![Owner Dashboard](./screenshots/owner-dashboard.png)
-
-- **Add Product Page**  
-  ![Add Product](./screenshots/add-product.png)
-
-(Add screenshots here for home page, product listings, order page, and contact page once you have them.)  
-
 ---
 
 ## 🛠️ Tech Stack
@@ -73,7 +54,8 @@ To explore **Owner/Admin features** (like adding products):
 - **Frontend:** EJS, Tailwind CSS  
 - **Backend:** Node.js, Express.js  
 - **Database:** MongoDB Atlas (Mongoose ODM)  
-- **Deployment:** Render  
+- **Cloud Storage:** Cloudinary (for product images)  
+- **Hosting/Deployment:** Render  
 
 ---
 
