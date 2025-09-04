@@ -15,6 +15,7 @@ router.get("/login",(req,res)=>{
 // create owner only in development mode
 
 if (process.env.NODE_ENV === "development") {
+  // console.log("IN DEVELOPMENT MODE");
   router.post("/create", async (req, res) => {
     const existingOwner = await OwnerModel.find({});
     if (existingOwner.length > 0) {
@@ -52,8 +53,6 @@ if (process.env.NODE_ENV === "development") {
   router.get("/create", (req, res) => {
     res.render("ownerCreate");
   });
-} else {
-  res.send("Invalid Operation");
 }
 
 router.get("/", (req, res) => {

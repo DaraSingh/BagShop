@@ -76,7 +76,7 @@ app.get("/login",(req,res)=>{
     res.render('Login')
 })
 
-app.get("/logOut",async(req,res)=>{
+app.get("/logOut",isLoggedIn,async(req,res)=>{
     // res.send(req.cookies)
     res.clearCookie("token")
     res.redirect('/')
