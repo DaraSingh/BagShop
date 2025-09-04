@@ -24,12 +24,18 @@
             <a href="/shop" class="text-3xl font-semibold text-gray-900 hover:underline"
               >🛍️</a
             >
-            <a href="/users/cart" class="text-3xl font-semibold text-gray-900 hover:underline "
+            <%if(id===process.env.OWNER_ID){%>
+
+            <%}else{%>
+              <a href="/users/cart" class="text-3xl font-semibold text-gray-900 hover:underline "
               >🛒</a>
               <a href="/users/order" class="text-3xl font-semibold text-gray-900 hover:underline "
               >📦</a>
               <a href="/contact" class="text-3xl font-semibold text-gray-900 hover:underline "
               >☎️</a>
+            <%}%>
+            
+              
               
           </div>
           <div class="hidden lg:flex lg:flex-1 lg:justify-end"></div>

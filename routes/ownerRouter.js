@@ -12,33 +12,10 @@ router.use(cookieParser());
 router.get("/login",(req,res)=>{
   res.render("ownerLogin");
 })
-
-// router.post("/login", async (req, res) => {
-//   const { email, password } = req.body;
-//   // console.log(req.body);
-//   const owner = await OwnerModel.find({ email: email });
-//   if (owner.length === 0) {
-//     return res.status(404).send("Owner not found");
-//   }
-//   // console.log(owner);
-//   bcrypt.compare(password, owner[0].password, function (err, result) {
-//     // result == true
-//     if (result) {
-//       res.cookie("token", password);
-//       return res.status(200).send(owner[0]);
-//     } else {
-//       return res.status(401).send("Invalid Credentials");
-//     }
-//   });
-// });
-
 // create owner only in development mode
 
 if (process.env.NODE_ENV === "development") {
-  // console.log("IN DEVELOPMENT MODE");
   router.post("/create", async (req, res) => {
-    // console.log(req.body);
-    // res.send(req.body)
     const existingOwner = await OwnerModel.find({});
     if (existingOwner.length > 0) {
       return res.send("Owner already exists");

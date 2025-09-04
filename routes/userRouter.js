@@ -15,31 +15,31 @@ router.get("/addToCart/:id",isLoggedIn,async(req,res)=>{
 })
 
 router.get("/cart",isLoggedIn,async(req,res)=>{
+  if(req.user.id==process.env.OWNER_ID) return res.redirect("/")
   let user=await userModel.findOne({_id:req.user.id}).populate('cart')
   res.render("cart",{user});
 })
 
 router.get("/order",isLoggedIn,async(req,res)=>{
-  console.log(req.user.id)
+  if(req.user.id==process.env.OWNER_ID) return res.redirect("/")
   let user=await userModel.findOne({_id:req.user.id})
   user.cart.forEach(item=>{
     user.orders.push(item);
   })
-  // console.log(user);
   user.cart=[]
   await user.populate('orders')
   user.save()
   res.render("orders",{user});
 })
 
- router.get("/delete/:user_id/:item_id",isLoggedIn, async (req, res) => {
-    let user=await userModel.findOne({_id:req.params.user_id})
+ router.get("/delete/:item_id",isLoggedIn, async (req, res) => {
+    let user=await userModel.findOne({_id:req.user.id})
     if(!user) return res.send("USER Not Found");
     user.cart = user.cart.filter(
       (productId) => productId.toString() !== req.params.item_id
     );
     await user.save()
-    res.redirect('/users/cart/'+req.params.user_id)
+    res.redirect('/users/cart')
   });
 
 router.post("/register", async (req, res) => {
@@ -57,7 +57,6 @@ router.post("/register", async (req, res) => {
             })
           const token=jwt.sign({id:createdUser._id},process.env.SECRET_KEY);
           res.cookie("token", token);
-          // res.send(createdUser);
           res.redirect('/shop')
         });
       });
@@ -67,6 +66,7 @@ router.post("/register", async (req, res) => {
   });
  router.get("/delete", async (req, res) => {
     const deletedOwner = await userModel.deleteMany({});
+    res.clearCookie('token');
     res.send(deletedOwner);
   });
   router.get("/list", async (req, res) => {

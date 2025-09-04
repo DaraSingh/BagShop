@@ -29,22 +29,17 @@ app.get("/contact",(req,res)=>{
 
 app.get("/shop",isLoggedIn,async(req,res)=>{
     const allProducts=await productModel.find({});
-    // const decode=jwt.decode(token)
     const decode=req.user
     let role="user"
     if((decode.id===process.env.OWNER_ID)){
-        // return res.render('/shop')
         role="admin"
     }
     res.render('Shop',{"items":allProducts,"role":role,"id":decode.id})
-    // res.render("Shop",)
 })
 
 app.post("/login",async(req,res)=>{
-    // res.send(req.body)
     const {email,password}=req.body;
     const user=await userModel.findOne({email:email});
-    // if(password==user.password) res.send("Success")
     // Load hash from your password DB.
     if(user){
             bcrypt.compare(password, user.password, function(err, result) {
@@ -64,7 +59,7 @@ app.post("/login",async(req,res)=>{
             if(result===true){
                 const token=jwt.sign({id:admin._id},process.env.SECRET_KEY);
                 res.cookie("token", token);
-                res.send("admin login success")
+                res.redirect("/shop")
             }
             else{
                 res.redirect('/login')
@@ -74,10 +69,6 @@ app.post("/login",async(req,res)=>{
     if(!admin && !user){
         res.redirect('/login')
     }
-    
-// bcrypt.compare(someOtherPlaintextPassword, hash, function(err, result) {
-//     // result == false
-// });
 })
 
 app.get("/login",(req,res)=>{
